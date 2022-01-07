@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 type ColorBoxProps = {
@@ -6,7 +6,7 @@ type ColorBoxProps = {
   colorHex: string;
 };
 
-const ColorBox: FC<ColorBoxProps> = ({ colorName, colorHex }) => {
+const ColorBox = ({ colorName, colorHex }: ColorBoxProps) => {
   return (
     <View style={[styles.colorContainer, { backgroundColor: colorHex }]}>
       <Text style={styles.whiteText}>
