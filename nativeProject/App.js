@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text, View, SafeAreaView, StyleSheet } from 'react-native';
+import { ColorBox } from './components/colorBox';
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
       <View style={[styles.colorContainer, styles.magenta]}>
         <Text style={styles.whiteText}>Magenta #2aa198</Text>
       </View>
+      <ColorBox colorName="magenta" colorHex="#2aa198" />
       <View style={[styles.colorContainer, styles.orange]}>
         <Text style={styles.whiteText}>Orange #2aa198</Text>
       </View>
