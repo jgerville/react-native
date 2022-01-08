@@ -5,7 +5,12 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Home from './screens/Home';
 import ColorPalette from './screens/ColorPalette';
 
-const Stack = createStackNavigator();
+const Stack = createStackNavigator<StackParamList>();
+
+type StackParamList = {
+  Home: undefined;
+  ColorPalette: undefined;
+};
 
 const App: FC = () => {
   return (
