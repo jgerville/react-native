@@ -9,7 +9,13 @@ const Stack = createStackNavigator<StackParamList>();
 
 type StackParamList = {
   Home: undefined;
-  ColorPalette: undefined;
+  ColorPalette: {
+    paletteName: string;
+    colors: {
+      colorName: string;
+      hexCode: string;
+    }[];
+  };
 };
 
 const App: FC = () => {
