@@ -7,9 +7,17 @@ type ColorBoxProps = {
 };
 
 const ColorBox = ({ colorName, colorHex }: ColorBoxProps) => {
+  // source for color function: https://kadikraman.github.io/react-native-v2/lists-exercise-solution
+  const textColor = {
+    color:
+      parseInt(colorHex.replace('#', ''), 16) > 0xffffff / 1.1
+        ? 'black'
+        : 'white',
+  };
+
   return (
     <View style={[styles.colorContainer, { backgroundColor: colorHex }]}>
-      <Text style={styles.whiteText}>
+      <Text style={textColor}>
         {colorName} {colorHex}
       </Text>
     </View>

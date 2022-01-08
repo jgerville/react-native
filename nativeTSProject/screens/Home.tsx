@@ -22,6 +22,22 @@ const SOLARIZED = [
   { colorName: 'Green', hexCode: '#859900' },
 ];
 
+const RAINBOW = [
+  { colorName: 'Red', hexCode: '#FF0000' },
+  { colorName: 'Orange', hexCode: '#FF7F00' },
+  { colorName: 'Yellow', hexCode: '#FFFF00' },
+  { colorName: 'Green', hexCode: '#00FF00' },
+  { colorName: 'Violet', hexCode: '#8B00FF' },
+];
+
+const FRONTEND_MASTERS = [
+  { colorName: 'Red', hexCode: '#c02d28' },
+  { colorName: 'Black', hexCode: '#3e3e3e' },
+  { colorName: 'Grey', hexCode: '#8a8a8a' },
+  { colorName: 'White', hexCode: '#ffffff' },
+  { colorName: 'Orange', hexCode: '#e66225' },
+];
+
 type StackParamList = {
   Home: undefined;
   ColorPalette: {
@@ -40,8 +56,18 @@ const Home = ({ navigation }: Props) => {
     <View>
       <ColorLink
         navigation={navigation}
-        paletteName={'solarized'}
+        paletteName={'Solarized'}
         colors={SOLARIZED}
+      />
+      <ColorLink
+        navigation={navigation}
+        paletteName={'Rainbow'}
+        colors={RAINBOW}
+      />
+      <ColorLink
+        navigation={navigation}
+        paletteName={'Rainbow'}
+        colors={FRONTEND_MASTERS}
       />
     </View>
   );
