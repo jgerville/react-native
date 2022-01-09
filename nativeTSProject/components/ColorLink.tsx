@@ -1,7 +1,8 @@
 import { StackNavigationProp } from '@react-navigation/stack';
 import React from 'react';
-import { Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { StackParamList } from '../App';
+import ColorPreview from './ColorPreview';
 
 type Props = {
   navigation: StackNavigationProp<StackParamList, 'Home'>;
@@ -21,9 +22,17 @@ const ColorLink = ({ navigation, paletteName, colors }: Props) => {
           colors,
         });
       }}>
-      <Text>{paletteName}</Text>
+      <Text style={styles.text}>{paletteName}</Text>
+      <ColorPreview colors={colors} />
     </TouchableOpacity>
   );
 };
+
+const styles = StyleSheet.create({
+  text: {
+    fontWeight: 'bold',
+    fontSize: 18,
+  },
+});
 
 export default ColorLink;
