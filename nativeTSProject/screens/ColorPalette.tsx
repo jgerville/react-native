@@ -1,25 +1,14 @@
 import { RouteProp } from '@react-navigation/native';
-import { StackScreenProps } from '@react-navigation/stack';
 import React from 'react';
 import { View, Text, FlatList, StyleSheet } from 'react-native';
+import { StackParamList } from '../App';
 import ColorBox from '../components/colorBox';
 
-type StackParamList = {
-  Home: undefined;
-  ColorPalette: {
-    paletteName: string;
-    colors: {
-      colorName: string;
-      hexCode: string;
-    }[];
-  };
+type Props = {
+  route: RouteProp<StackParamList, 'ColorPalette'>;
 };
 
-type Props = StackScreenProps<StackParamList, 'Home'>;
-// type ColorPaletteRouteProps = RouteProp<StackParamList, 'ColorPalette'>
-
 const ColorPalette = ({ route }: Props) => {
-  
   return (
     <>
       <View style={styles.container}>

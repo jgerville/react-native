@@ -7,7 +7,7 @@ import ColorPalette from './screens/ColorPalette';
 
 const Stack = createStackNavigator<StackParamList>();
 
-type StackParamList = {
+export type StackParamList = {
   Home: undefined;
   ColorPalette: {
     paletteName: string;

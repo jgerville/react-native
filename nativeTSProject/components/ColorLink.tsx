@@ -1,17 +1,7 @@
 import { StackNavigationProp } from '@react-navigation/stack';
 import React from 'react';
 import { Text, TouchableOpacity } from 'react-native';
-
-type StackParamList = {
-  Home: undefined;
-  ColorPalette: {
-    paletteName: string;
-    colors: {
-      colorName: string;
-      hexCode: string;
-    }[];
-  };
-};
+import { StackParamList } from '../App';
 
 type Props = {
   navigation: StackNavigationProp<StackParamList, 'Home'>;
@@ -31,7 +21,7 @@ const ColorLink = ({ navigation, paletteName, colors }: Props) => {
           colors,
         });
       }}>
-      <Text>Colors</Text>
+      <Text>{paletteName}</Text>
     </TouchableOpacity>
   );
 };

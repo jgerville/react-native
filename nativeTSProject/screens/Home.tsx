@@ -1,6 +1,7 @@
 import { StackScreenProps } from '@react-navigation/stack';
 import React from 'react';
 import { View } from 'react-native';
+import { StackParamList } from '../App';
 import ColorLink from '../components/ColorLink';
 
 const SOLARIZED = [
@@ -38,17 +39,6 @@ const FRONTEND_MASTERS = [
   { colorName: 'Orange', hexCode: '#e66225' },
 ];
 
-type StackParamList = {
-  Home: undefined;
-  ColorPalette: {
-    paletteName: string;
-    colors: {
-      colorName: string;
-      hexCode: string;
-    }[];
-  };
-};
-
 type Props = StackScreenProps<StackParamList, 'Home'>;
 
 const Home = ({ navigation }: Props) => {
@@ -66,7 +56,7 @@ const Home = ({ navigation }: Props) => {
       />
       <ColorLink
         navigation={navigation}
-        paletteName={'Rainbow'}
+        paletteName={'Frontend Masters'}
         colors={FRONTEND_MASTERS}
       />
     </View>
