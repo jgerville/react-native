@@ -1,6 +1,6 @@
 import { StackScreenProps } from '@react-navigation/stack';
 import React from 'react';
-import { View } from 'react-native';
+import { FlatList, View } from 'react-native';
 import { StackParamList } from '../App';
 import ColorLink from '../components/ColorLink';
 
@@ -22,7 +22,6 @@ const SOLARIZED = [
   { colorName: 'Cyan', hexCode: '#2aa198' },
   { colorName: 'Green', hexCode: '#859900' },
 ];
-
 const RAINBOW = [
   { colorName: 'Red', hexCode: '#FF0000' },
   { colorName: 'Orange', hexCode: '#FF7F00' },
@@ -30,7 +29,6 @@ const RAINBOW = [
   { colorName: 'Green', hexCode: '#00FF00' },
   { colorName: 'Violet', hexCode: '#8B00FF' },
 ];
-
 const FRONTEND_MASTERS = [
   { colorName: 'Red', hexCode: '#c02d28' },
   { colorName: 'Black', hexCode: '#3e3e3e' },
@@ -39,25 +37,35 @@ const FRONTEND_MASTERS = [
   { colorName: 'Orange', hexCode: '#e66225' },
 ];
 
+type Palettes = {
+  paletteName: string;
+  colors: {
+    colorName: string;
+    hexCode: string;
+  }[];
+}[];
+
+const COLOR_PALETTES: Palettes = [
+  { paletteName: 'Solarized', colors: SOLARIZED },
+  { paletteName: 'Rainbow', colors: RAINBOW },
+  { paletteName: 'Frontend Masters', colors: FRONTEND_MASTERS },
+];
+
 type Props = StackScreenProps<StackParamList, 'Home'>;
 
 const Home = ({ navigation }: Props) => {
   return (
     <View>
-      <ColorLink
-        navigation={navigation}
-        paletteName={'Solarized'}
-        colors={SOLARIZED}
-      />
-      <ColorLink
-        navigation={navigation}
-        paletteName={'Rainbow'}
-        colors={RAINBOW}
-      />
-      <ColorLink
-        navigation={navigation}
-        paletteName={'Frontend Masters'}
-        colors={FRONTEND_MASTERS}
+      <FlatList
+        data={COLOR_PALETTES}
+        keyExtractor={item => item.paletteName}
+        renderItem={({ item }) => (
+          <ColorLink
+            navigation={navigation}
+            paletteName={item.paletteName}
+            colors={item.colors}
+          />
+        )}
       />
     </View>
   );
